@@ -1,2 +1,13 @@
-$.cloudinary.config().cloud_name = 'XXXXXXXXX';
-$.cloudinary.config().upload_preset = 'YYYYYYYY';
+angular.module('photoAlbumCloudinaryConfig',[])
+
+  // ********************************************
+  // Set your custom Cloudinary config here
+  // ********************************************
+  .constant('CLOUD_NAME','XXXXXXXXX')
+  .constant('UPLOAD_PRESET','YYYYYYYY')
+
+  // Sets config for Cloudinary-jQuery
+  .config(['CLOUD_NAME','UPLOAD_PRESET', function (CLOUD_NAME, UPLOAD_PRESET) {
+    $.cloudinary.config().cloud_name = CLOUD_NAME;
+    $.cloudinary.config().upload_preset = UPLOAD_PRESET;
+  }]);
